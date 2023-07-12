@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { easing } from 'maath'
-import { useSnapshot } from 'valtio'
+import React, { useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
+import { easing } from 'maath';
+import { useSnapshot } from 'valtio';
 
-import state from '../store'
+import state from '../store';
 
 const CameraRig = ({ children }) => {
   const group = useRef();
@@ -24,7 +24,6 @@ const CameraRig = ({ children }) => {
     }
 
     // set model camera position
-
     easing.damp3(state.camera.position, targetPosition, 0.25, delta)
 
     // set the model rotation smoothly
@@ -35,6 +34,7 @@ const CameraRig = ({ children }) => {
       delta
     )
   })
+
 
   return <group ref={group}>{children}</group>
 }
